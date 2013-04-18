@@ -1,0 +1,143 @@
+<!doctype html>
+<html>
+  <head>
+  {% block starthead %}{% endblock starthead %}
+  <meta charset="{{ resource.meta.charset }}">
+  <meta http-equiv="X-UA-Compatible" content="{{ resource.meta.compatibility }}">
+
+  <title>{% block title %}{{ resource.meta.title }}{% endblock %}</title>
+  <meta name="description" content="{{ resource.meta.description }}">
+  <meta name="author" content="{{ resource.meta.author }}">
+
+  <!--  Mobile viewport optimized: j.mp/bplateviewport -->
+  <meta name="viewport" content="{{ resource.meta.viewport }}">
+
+  {% block favicons %}
+  <!-- Place favicon.ico & apple-touch-icon.png
+        in the root of your domain and delete these references -->
+  <link rel="shortcut icon" href="{{ media_url('/favicon.ico') }}">
+  <link rel="apple-touch-icon" href="{{ media_url('/apple-touch-icon.png') }}">
+  {% endblock favicons %}
+
+  {% block css %}
+    <link rel="stylesheet" href="https://github.com/themes/minimal/stylesheets/styles.css">
+    <style>
+      header { zoom: 1.2; }
+      header h1 { margin-bottom: 5px; }
+      header h1 a { color: #494949; font-weight: bold; }
+      header h3 { margin-top: 20px; margin-bottom: 5px; }
+      header p.view { margin-bottom: 5px; }
+      header p.view small { padding-top: 2px; }
+      header ul {
+        zoom: 0.7;
+        margin-top: 25px;
+      }
+      section p { margin-top: 10px; }
+      section h1 { margin-bottom: 15px; }
+      section h2 { margin-bottom: 10px; }
+      section h2 { margin-bottom: 10px; }
+      footer { bottom: 20px; }
+      footer p { margin-bottom: 5px; }
+      .half-width {
+        float: left;
+        width: 200px;
+        list-style: none;
+        padding: 5px;
+        margin: 7px;
+        margin-bottom: 10px;
+      }
+      .half-width h4 {
+        margin-bottom: 5px;
+      }
+      .half-width ul {
+        padding-left: 0;
+      }
+      .half-width ul li {
+        list-style: inside;
+        font-size: 15px;
+      }
+      .clear-fix {
+        clear: both;
+      }
+    </style>
+    <script src="https://github.com/themes/minimal/javascripts/scale.fix.js"></script>
+  {% endblock css %}
+    
+  <body id="{{ resource.meta.id if resource.meta.id else resource.slug }}">
+  {% block content %}
+    <div class="wrapper">
+      {% block wrapper %}
+      <header>
+        {% block header %}
+        <h1><a href="/">Jake VanderPlas</a></h1>
+	{% endblock header %}
+	{% block nav %}
+        <p class="view"><a href="/research.html">Research<small>The Things I think About</small></a></p>
+        <p class="view"><a href="/projects.html">Open Source Projects<small>Code You Might find Useful</small></a></p>
+        <p class="view"><a href="/speaking.html">Talks I've Given<small>Astronomy, Python, and Beyond</small></a></p>
+        <p class="view"><a href="/vitae.html">Vitae<small>All About my Work</small></a></p>
+        {% if page.repository_url %}
+          <h3>Project Info</h3>
+          <ul>
+            {% if page.zip_url %}
+              <li><a href="{{ page.zip_url }}">Download <strong>ZIP File</strong></a></li>
+            {% endif %}
+            {% if page.tar_url %}
+              <li><a href="{{ page.tar_url }}">Download <strong>TAR Ball</strong></a></li>
+            {% endif %}
+            {% if page.gem_url %}
+              <li><a href="{{ page.gem_url }}">Download <strong>Rubygem</strong></a></li>
+            {% endif %}
+            {% if page.issue_url %}
+              <li><a href="{{ page.issue_url }}">Report<strong>An Issue</strong></a></li>
+            {% endif %}
+            {% if page.repository_url %}
+              <li><a href="{{ page.repository_url }}">Fork On <strong>GitHub</strong></a></li>
+            {% endif %}
+          </ul>
+        {% endif %}
+	{% endblock nav %}
+	  
+	{% block media %}
+        <h3>Follow Me On</h3>
+        <p class="view"><a href="https://github.com/jakevdp" target="tab">GitHub</a></li>
+        <p class="view"><a href="https://twitter.com/jakevdp" target="tab">Twitter</a></li>
+        {% endblock media %}
+      </header>
+      <section id="main">
+	{% block main %}
+        {{ content }}
+	{% endblock main %}
+      </section>
+      {% block footer %}
+      <footer>
+        <p><small>jakevdp@cs.washington.edu</small></p>
+      </footer>
+      {% endblock footer %}
+    {% endblock wrapper %}
+    </div>
+    {% endblock content %}
+
+    {% block js %}
+    <script type="text/javascript">
+      var _gauges = _gauges || [];
+      (function() {
+        var t   = document.createElement('script');
+        t.type  = 'text/javascript';
+        t.async = true;
+        t.id    = 'gauges-tracker';
+        t.setAttribute('data-site-id', '4eb74c9f613f5d3567000004');
+        t.src = '//secure.gaug.es/track.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(t, s);
+      })();
+    </script>
+    {% block jquery %}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')</script>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+    {% endblock jquery %}
+    {% endblock js %}
+
+  </body>
+</html>
