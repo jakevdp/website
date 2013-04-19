@@ -74,6 +74,7 @@
         <h1><a href="/">Jake VanderPlas</a></h1>
 	{% endblock header %}
 	{% block nav %}
+	<br>
         <p class="view"><a href="/research.html">Research<small>The Things I think About</small></a></p>
         <p class="view"><a href="/projects.html">Open Source Projects<small>Code You Might find Useful</small></a></p>
         <p class="view"><a href="/speaking.html">Talks I've Given<small>Astronomy, Python, and Beyond</small></a></p>
@@ -141,6 +142,11 @@
     <script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')</script>
     <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
     {% endblock jquery %}
+
+    {% block analytics %}
+    {% include "analytics.j2" %}
+    {% endblock analytics %}
+
     {% endblock js %}
 
   </body>

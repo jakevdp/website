@@ -12,35 +12,10 @@ plugins:
 context:
     data:
         tweet_via: jakevdp
-        menu:
-            -
-                name: Home
-                description: Home Page
-                css_class: home
-                type: page
-                url: index.html
-            -
-                name: Portfolio
-                description: Portfolio
-                css_class: portfolio
-                type: node
-                url: portfolio
-            -
-                name: Blog
-                description: Blog
-                css_class: blog
-                type: node
-                url: blog
-            -
-                name: About
-                description: About
-                css_class: about
-                type: page
-                url: about.html
 meta:
     nodemeta: meta.yaml
-    created: !!timestamp 2010-01-01 00:00:00
-    author: Lakshmi Vyasarajan
+    created: !!timestamp 2013-04-18 00:00:00
+    author: Jake VanderPlas
 sorter:
     time:
         attr:
