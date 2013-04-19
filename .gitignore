@@ -1,1 +1,4 @@
 *~
+deploy/
+.hyde_deps
+content/.hyde_deps

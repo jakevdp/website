@@ -15,12 +15,13 @@
   {% block favicons %}
   <!-- Place favicon.ico & apple-touch-icon.png
         in the root of your domain and delete these references -->
-  <link rel="shortcut icon" href="{{ media_url('/favicon.ico') }}">
-  <link rel="apple-touch-icon" href="{{ media_url('/apple-touch-icon.png') }}">
+  <link rel="shortcut icon" href="/media/favicon.ico">
+  <link rel="apple-touch-icon" href="/media/apple-touch-icon.png">
   {% endblock favicons %}
 
   {% block css %}
-    <link rel="stylesheet" href="https://github.com/themes/minimal/stylesheets/styles.css">
+    <!--<link rel="stylesheet" href="https://github.com/themes/minimal/stylesheets/styles.css">-->
+    <link rel="stylesheet" href="/media/js/styles.css">
     <style>
       header { zoom: 1.2; }
       header h1 { margin-bottom: 5px; }
@@ -60,7 +61,8 @@
         clear: both;
       }
     </style>
-    <script src="https://github.com/themes/minimal/javascripts/scale.fix.js"></script>
+    <!--<script src="https://github.com/themes/minimal/javascripts/scale.fix.js"></script>-->
+    <script src="/media/js/scale.fix.js"></script>
   {% endblock css %}
     
   <body id="{{ resource.meta.id if resource.meta.id else resource.slug }}">
@@ -99,9 +101,10 @@
 	{% endblock nav %}
 	  
 	{% block media %}
-        <h3>Follow Me On</h3>
-        <p class="view"><a href="https://github.com/jakevdp" target="tab">GitHub</a></li>
-        <p class="view"><a href="https://twitter.com/jakevdp" target="tab">Twitter</a></li>
+        <h3>On the Web</h3>
+        <p class="view"><a href="http://github.com/jakevdp" target="tab">GitHub</a></li>
+        <p class="view"><a href="http://twitter.com/jakevdp" target="tab">Twitter</a></li>
+        <p class="view"><a href="http://jakevdp.github.io" target="tab">Blog</a></li>
         {% endblock media %}
       </header>
       <section id="main">
@@ -111,7 +114,8 @@
       </section>
       {% block footer %}
       <footer>
-        <p><small>jakevdp@cs.washington.edu</small></p>
+	<p><small>Built with <a href="http://hyde.github.io/">Hyde</a>.
+	    Layout adapted from <a href="https://github.com/orderedlist">orderedlist</a>.</small></p>
       </footer>
       {% endblock footer %}
     {% endblock wrapper %}
