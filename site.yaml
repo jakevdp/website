@@ -1,4 +1,4 @@
-mode: development
+mode: production
 
 media_root: media # Relative path from content folder.
 media_url: /users/vanderplas/media # URL where the media files are served from.
@@ -18,6 +18,9 @@ meta:
     nodemeta: meta.yaml
     created: !!timestamp 2013-04-18 00:00:00
     author: Jake VanderPlas
+    analytics:
+        id: UA-11762888-1
+
 sorter:
     time:
         attr:
