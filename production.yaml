@@ -1,0 +1,5 @@
+extends: site.yaml
+
+mode: production
+media_url: /users/vanderplas/media
+base_url: /users/vanderplas
