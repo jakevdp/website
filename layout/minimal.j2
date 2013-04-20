@@ -21,7 +21,7 @@
 
   {% block css %}
     <!--<link rel="stylesheet" href="https://github.com/themes/minimal/stylesheets/styles.css">-->
-    <link rel="stylesheet" href="/media/js/styles.css">
+    <link rel="stylesheet" href="{{ media_url('js/styles.css') }}">
     <style>
       header { zoom: 1.2; }
       header h1 { margin-bottom: 5px; }
@@ -62,7 +62,7 @@
       }
     </style>
     <!--<script src="https://github.com/themes/minimal/javascripts/scale.fix.js"></script>-->
-    <script src="/media/js/scale.fix.js"></script>
+    <script src="{{ media_url('js/scale.fix.js') }}"></script>
   {% endblock css %}
     
   <body id="{{ resource.meta.id if resource.meta.id else resource.slug }}">
@@ -71,14 +71,14 @@
       {% block wrapper %}
       <header>
         {% block header %}
-        <h1><a href="/">Jake VanderPlas</a></h1>
+        <h1><a href="{{ content_url('') }}">Jake VanderPlas</a></h1>
 	{% endblock header %}
 	{% block nav %}
 	<br>
-        <p class="view"><a href="/research.html">Research<small>The Things I think About</small></a></p>
-        <p class="view"><a href="/projects.html">Open Source Projects<small>Code You Might find Useful</small></a></p>
-        <p class="view"><a href="/speaking.html">Talks I've Given<small>Astronomy, Python, and Beyond</small></a></p>
-        <p class="view"><a href="/vitae.html">Vitae<small>All About my Work</small></a></p>
+        <p class="view"><a href="{{ content_url('research.html') }}">Research<small>The Things I think About</small></a></p>
+        <p class="view"><a href="{{ content_url('projects.html') }}">Open Source Projects<small>Code You Might find Useful</small></a></p>
+        <p class="view"><a href="{{ content_url('speaking.html') }}">Talks I've Given<small>Astronomy, Python, and Beyond</small></a></p>
+        <p class="view"><a href="{{ content_url('vitae.html') }}">Vitae<small>All About my Work</small></a></p>
         {% if page.repository_url %}
           <h3>Project Info</h3>
           <ul>
