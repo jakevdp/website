@@ -4,12 +4,12 @@ Building
 ========
 Requires hyde:
 
-   pip install hyde
+    pip install hyde
 
 Generate site:
 
-   hyde gen
+    hyde gen
 
 Preview site:
 
-   hyde serve
+    hyde serve
