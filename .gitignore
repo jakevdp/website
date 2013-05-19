@@ -1,4 +1,5 @@
 *~
 deploy/
+deploy_production/
 .hyde_deps
 content/.hyde_deps
