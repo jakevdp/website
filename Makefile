@@ -10,4 +10,4 @@ clean:
 publish:
 	rm -rf deploy
 	hyde gen -c production.yaml
-	rsync -e ssh -r deploy/ portal:/www/astro/users/vanderplas/html/
+	rsync -e ssh -r deploy_production/ portal:/www/astro/users/vanderplas/html/
