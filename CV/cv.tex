@@ -1,0 +1,545 @@
+% Adapted from layout by GaelVaroquaux
+%  http://gael-varoquaux.info
+%
+
+\documentclass{article} %{{{--
+
+\usepackage[paper=a4paper,
+	    top=2cm,
+	    left=1.35cm,
+	    width=18.2cm,
+	    bottom=2cm
+	    ]{geometry}
+            %margin=4cm,
+
+\usepackage{calc}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{color,hyperref}
+\usepackage{graphicx}
+\usepackage{multicol}
+
+\usepackage{wasysym} % For phone symbol
+\usepackage{url}
+
+\def\bf{\bfseries}
+\def\sf{\sffamily}
+\def\sl{\slshape}
+% Semi condensed bold
+
+\definecolor{deep_blue}{rgb}{0,.2,.5}
+\definecolor{dark_blue}{rgb}{0,.1,.3}
+\definecolor{myblue}{rgb}{.01,0.21,0.71}
+\definecolor{gray}{rgb}{.5, .5, .5}
+
+\hypersetup{pdftex,  % needed for pdflatex
+  breaklinks=true,  % so long urls are correctly broken across lines
+  colorlinks=true,
+  urlcolor=myblue,
+  %linkcolor=darkblue,
+  %citecolor=darkgreen,
+  }
+
+
+%% This gives us fun enumeration environments. 
+\usepackage{enumitem}
+
+%% More layout: Get rid of indenting throughout entire document
+\setlength{\parindent}{0in}
+
+%% Reference the last page in the page number
+%
+\usepackage{fancyhdr,lastpage}
+\pagestyle{fancy}
+%\pagestyle{empty}      % Uncomment this to get rid of page numbers
+\fancyhf{}\renewcommand{\headrulewidth}{0pt}
+\fancyfootoffset{\marginparsep+\marginparwidth}
+\lfoot{%\hspace{\footpageshift}%
+	\,\hfill %
+                    \arabic{page} of \protect\pageref*{LastPage} % +LP
+%                    \arabic{page}                               % -LP
+                    \hfill \,}
+
+\newcommand{\mydate}[1]{{\textcolor{gray}{\footnotesize #1}}}
+
+
+\newcommand{\makeheading}[1]%
+        {%\hspace*{-\marginparsep minus \marginparwidth}%
+         %\begin{minipage}[t]{\textwidth+\marginparwidth+\marginparsep}%
+         \begin{minipage}[t]{\textwidth}%
+                {\Large #1}\\%[-0.5\baselineskip]%
+                 \color{deep_blue}{\rule{\columnwidth}{3pt}}%
+         \end{minipage}
+	 \vskip 1.\baselineskip plus 2\baselineskip minus 1.\baselineskip
+	}
+
+\newlength\sidebarwidth
+\setlength\sidebarwidth{3.6cm}
+
+\newcommand{\topic}[3][]%
+	 {\pagebreak[2]%
+	 \vskip 1.5\baselineskip plus 3\baselineskip minus 0.7\baselineskip
+	 \begin{minipage}{\textwidth}
+         \phantomsection\addcontentsline{toc}{section}{#1}%
+         \nopagebreak\hspace{0in}%
+         \nopagebreak\begin{minipage}[t]{\sidebarwidth - .2cm}
+         \raggedleft \bf\sf 
+	 \color{deep_blue}{\Large #2}
+	 \end{minipage}%
+	 \hfill
+	 \begin{minipage}[t]{\linewidth - \sidebarwidth}
+	 \nopagebreak{\color{deep_blue}%
+		    \rule{0pt}{\baselineskip}%
+		    \rule{\linewidth}{2.5pt}%
+		    \llap{\raisebox{.3\baselineskip}{\sf #1}}%
+		    \vspace*{.1\baselineskip}%
+		    }%
+	 #3%
+	 \end{minipage}
+	 \end{minipage}}
+
+\newcommand{\smalltopic}[2]%
+	 {\pagebreak[2]%
+	 \vskip 1\baselineskip plus 2\baselineskip minus 0.3\baselineskip
+	 \begin{minipage}{\textwidth}
+	 %\hspace{-\marginparsep minus \marginparwidth}%
+         \phantomsection\addcontentsline{toc}{subsection}{#1}%
+         \nopagebreak\hspace{0in}%
+         \nopagebreak\begin{minipage}[t]{\sidebarwidth - .2cm}
+         \raggedleft \bf\sf %\vskip -0.5\baselineskip
+	 \textcolor{dark_blue}{\large #1}%
+	 \end{minipage}%
+	 \hfill
+	 \begin{minipage}[t]{\linewidth - \sidebarwidth}
+	 \nopagebreak{%
+	    %\vspace{-.7\baselineskip}%
+	    \rule{\linewidth}{.5pt}%
+	    \vspace{.1\baselineskip}%
+	    }%
+	    #2
+	 \end{minipage}
+	 \end{minipage}}
+
+\newcommand{\subtopic}[3][]
+	 {\begin{minipage}{\textwidth}
+	 \vspace*{.4\baselineskip}
+         \nopagebreak\hspace{0in}%
+         \nopagebreak\begin{minipage}[t]{\sidebarwidth - .2cm}
+	 % Super posh: using semi-bold condensed fonts. Works only with
+	 % lmodern
+         \raggedleft {\sf\fontseries{sbc}\selectfont #2}
+	 {\small\sl\\[-0.2\baselineskip] #1}
+	 \end{minipage}%
+	 \hfill
+	 \begin{minipage}[t]{\linewidth - \sidebarwidth}
+	 #3%
+	 \end{minipage}%
+	 \vspace*{.2\baselineskip plus 1\baselineskip minus
+	 .2\baselineskip}%
+	 \end{minipage}}
+
+\newcommand{\sidenote}[2]
+	 {\vspace*{-.2\baselineskip}\begin{minipage}{\textwidth}
+         \nopagebreak\hspace{0in}%
+         \nopagebreak\begin{minipage}[t]{\sidebarwidth - .2cm}
+         \raggedleft {#1}
+	 \end{minipage}%
+	 \hfill
+	 \begin{minipage}[t]{\linewidth - \sidebarwidth}
+	 #2%
+	 \end{minipage}%
+	 \vspace*{.5\baselineskip plus 1\baselineskip minus
+	 .2\baselineskip}%
+	 \end{minipage}}
+
+% New lists environments 
+\newlist{outerlist}{itemize}{1}
+\setlist[outerlist]{font=\sffamily\bfseries, label=\textbullet}
+\setitemize{topsep=0ex, partopsep=0ex}
+\setdescription{font=\normalfont\sffamily\bfseries, itemsep=.5ex,
+    parsep=.5ex, leftmargin=3ex}
+
+\newcommand{\blankline}{\quad\pagebreak[2]}
+
+\def\mydot{\textcolor{deep_blue}{\rule{1ex}{1ex}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%--}}}%
+\begin{document}
+\makeheading{
+\begin{minipage}[B]{0.5\textwidth}
+    %\vfill
+    \vspace*{-.5\baselineskip}%
+    \parbox{10cm}{
+	\hskip -0.1cm
+	{\Huge\bf\sf \color{deep_blue} Jake %
+		\color{dark_blue} V\huge \hskip -0.05cm ANDERPLAS}
+	\\[-.2\baselineskip]
+	\bf\sf Astronomy -- Machine Learning
+    }
+\end{minipage}
+\hfill
+\begin{minipage}[B]{8cm}
+    \raggedleft
+    \,\vskip -1em
+    \small
+        University of Washington (Seattle, WA)
+	{\texttt {jakevdp@cs.washington.edu}}%
+    \vspace*{-.5\baselineskip}%
+\end{minipage}
+}
+
+%\begin{center} 
+%\begin{minipage}{15cm}
+\begin{multicols}{2}
+\sloppy
+
+\textcolor{deep_blue}{\bf\sf Research interests}:
+data mining and automated learning of astronomical data sets.
+
+\begin{itemize}[leftmargin=2ex, itemsep=0ex]
+\item[\mydot]
+My PhD research focused on {\it weak lensing}, a technique utilizing small
+gravitational perterbations of light paths to learn about the distribution
+of matter in the universe.
+
+\item[\mydot]
+Currently I am an NSF post-doctoral fellow, working jointly between the
+Astronomy and Computer Science departments at the University of Washington.
+
+\item[\mydot]
+Additionally, I am interested in developing open source scientific-computing
+tools (mainly in the Python programming language) and encouraging open research
+through these tools.
+
+\end{itemize}
+\end{multicols}
+\vspace*{-1.5em}
+\fussy
+%\end{minipage}
+%\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\topic{E \large\hskip -1ex DUCATION}{~}
+
+    \subtopic[2006-2012]{\bf PhD}{
+        University of Washington, Seattle, WA, advised by Andrew Connolly\\
+	Thesis: \href{http://adsabs.harvard.edu/abs/2013arXiv1301.6657V}{
+          Karhunen-Loeve Analysis for Weak Gravitational Lensing}
+    }
+
+    \subtopic[2006-2007]{\bf MS}{
+      University of Washington, Seattle, WA, supervised by Craig Hogan\\
+    }
+
+    \subtopic[1999-2003]{\bf BS}{
+      Calvin College, Grand Rapids MI\\
+      Major: Physics; Minors: Mathematics \& Japanese
+    }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\topic{E \large\hskip -1ex XPERIENCE}{~}
+
+\vspace*{-0.5\baselineskip}
+\smalltopic{Employment}{}
+
+    \subtopic[2013--Present]{UW Computer Science}{
+      NSF post-doctoral fellowship, CI-TraCS program.\\
+      Department of Computer Science, University of Washington.
+      Supervised by Magda Balazinska}
+
+    \subtopic[2012--2013]{UW Astronomy}{
+      Postdoctoral Research in the LSST Image Simulation group.\\
+      Department of Astronomy, University of Washington.
+      Supervised by Andrew Connolly
+    }
+
+    \subtopic[2010--2012]{UW Planetarium}{
+      WorldWide Telescope Planetarium Project Coordinator\\
+      University of Washington Planetarium, Seattle WA \& Microsoft Research, Redmond WA
+    }
+
+    \subtopic[2008--2010]{UW Planetarium}{
+      K-12 and Community Outreach Coordinator\\
+      University of Washington Planetarium, Seattle WA
+    }
+
+    \subtopic[2004--2006]{Mount Hermon}{
+      Experiential Science Educator (4th-8th grade)\\
+      Mount Hermon Outdoor Science School, Santa Cruz CA
+    }
+
+    \subtopic[2004--2005]{Summit Adventure}{
+      Backpacking, Rock Climbing, and Mountaineering Instructor\\
+      Summit Adventure, Bass Lake CA
+    }
+
+    \subtopic[2003--2004]{Japan ESL}{
+      Teacher and Tutor of English as a second language,\\
+      Sendai Gakusei Sentaa, Sendai, Japan
+    }
+
+\smalltopic{Volunteering}{}
+
+    \subtopic[2010--2013]{Neighborhood Advocacy}{
+      As a founder of West Seattle Greenways and transportation chair of
+      the Delridge Neighborhood Council, I led in securing several grants
+      totaling over \$2 million for pedestrian
+      and bicycle safety improvements in the neighborhood.}
+
+    \subtopic[2009--2013]{Pacific Science Center}{
+      As a Science Communication Fellow, I facilitate activities for
+      museum visitors and give occasional community talks on astronomy
+      and astrophysics.
+    }
+
+    \subtopic[2007--2012]{Sierra Club}{
+      As a program leader for the Sierra Club's {\it Inner City Outings}
+      program, I led 3-4 hiking \& camping trips each year with inner-city
+      youth.
+    }
+
+\smalltopic{Students Mentored}{}
+
+    \subtopic[2008--2009]{Andy Barr \&\\Devon McMinn}{
+      Undergraduate, University of Washington Pre-MAP\\
+      {\it Astronomical Data Processing with LLE}
+    }
+
+    \subtopic[2012--2013]{SungWon Kwok}{
+      Undergraduate, University of Washington Astronomy\\
+      {\it Superimposed High Redshift Spectra}
+    }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\topic{C \large\hskip -1ex OMPUTING}{
+  I am an active developer and maintainer of scientific computing packages
+  in the Python community.
+  See my github profile (\href{http://github.com/jakevdp}{jakevdp})
+  for details.}
+
+%\vspace*{-0.5\baselineskip}
+\smalltopic{Skills}{
+
+  \begin{itemize}[leftmargin=0ex, itemsep=0ex, labelindent=-2ex, parsep=.5ex]
+    \item[\mydot] Proficient developer, with a specialization in
+      scientific computing, including data mining and machine learning.
+    \item[\mydot] Expert in the Python Language and extensions such as Cython;
+      very good knowledge of C, C++, and interfacing to legacy Fortran code.
+    \item[\mydot] Author of a popular Python blog covering visualization,
+      scientific computing, and fun distractions:
+      \href{http://jakevdp.github.io}{Pythonic Perambulations}
+  \end{itemize}
+
+}
+
+\smalltopic{Software}{}
+
+   \subtopic[2010--Present]{Scikit-Learn}{
+     I a member of the core team of
+     \href{http://scikit-learn.org}{Scikit-Learn},
+     a very popular package for machine learning in Python.  I
+     have contributed in many areas, but most notably routines for efficient
+     2-point (e.g. nearest neighbors) queries, and algorithms based on these
+     such as {\it k}-neighbor classification, kernel density estimation,
+     and manifold learning.  I have also presented tutorials on the subject
+     on many occasions, includinng at the PyCon, SciPy, and PyData
+     conferences.}
+
+   \subtopic[2011--Present]{SciPy}{
+     I am a maintainer of 
+     \href{http://scipy.org}{SciPy}, the definitive repository for many
+     scientific computing tools available in Python.
+     My contributions are primarily in the sparse
+     matrix package, including code for efficient solutions of large sparse
+     eigenvalue problems, and for efficient traversal and analysis of
+     large sparse graphs.
+   }
+
+   \subtopic[2012--Present]{AstroML}{
+     I am the primary author of \href{http://astroML.org}{AstroML}, a Python
+     package devoted to Machine Learning in Astronomy and Astrophysics.
+     Drawing from tools available in SciPy, Scikit-Learn, Matplotlib, and
+     other packages, it provides additional astronomy-specific data analysis
+     routines, loaders for open astronomical datasets, and over 200 examples
+     of data mining, machine learning, and visualization in Astronomy.
+   }
+
+   \subtopic[2013--Present]{SciDB-Py}{
+     I am the primary author of \href{http://jakevdp.github.io/SciDB-py}
+     {SciDB-py}, a Python wrapper of the SciDB database system aimed at
+     efficient distributed array-based computation.  This project is in
+     conjunction with engineers at Paradigm4 and at ContinuumIO.
+   }
+
+   \subtopic[2013--Present]{JSAnimation}{
+     I am the author of the \href{http://github.com/jakevdp/JSAnimation}
+     {JSAnimation} package, a lightweight tool to embed interactive
+     matplotlib animations within html pages, including IPython notebooks.
+   }
+
+   \subtopic[]{Others}{
+     I have made contributions to many other Python projects, the most
+     noteworthy of which are matplotlib for visualization,
+     ipython for interactive computing, pelican for static blog generation,
+     and others.
+   }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\topic{H \large\hskip -1ex ONORS}{~}
+
+    \subtopic[2013]{Data Visualization}{
+      Runner-up in the 2013 {\it John Hunter Excellence in Plotting Competition}
+    }
+
+    \subtopic[2012]{CIDU Best Paper}{
+      Recipient of the Best Paper Award, 2012 Conference on Intelligent
+      Data Understanding (CIDU).
+    }
+
+    \subtopic[2012]{NSF Fellowship}{
+      Recipient of an NSF prize fellowship (3 years) through the
+      {\it CyberInfrastructure and Transformative Computational Science}
+      (CI-TraCS) program.  NSF Award \#1226371
+    }
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\topic{S \large\hskip -1ex ELECTED TALKS}{~}
+
+
+\subtopic{\hspace*{-3ex}Astronomy and\\Astrophysics}{~
+  \vspace*{\baselineskip}
+
+  \begin{itemize}[leftmargin=0ex, itemsep=0ex, parsep=.5ex, labelindent=-4ex]
+
+  % Berkeley Cosmology Seminar
+
+  \item[\mydate{August 2013}]
+    {\it Reproducible Astronomy in the LSST Era}\\
+    Data Science Seminar, Los Alamos National Labs (invited)
+
+  \item[\mydate{July 2013}]
+    {\it Opening Up Astronomy with Python and AstroML}\\
+    Scipy 2013, Austin TX
+
+  \item[\mydate{May 2013}]
+    {\it Information Theory and Survey Design}\\
+    UC Davis Cosmology Seminar, Davis CA (invited)
+
+  \item[\mydate{April 2013}]
+    {\it Observational Tracers of Modified Gravity: Dwarf Disk Galaxies}\\
+    Novel Probes of Gravity Workshop, University of Pennsylvania (invited)
+
+  \item[\mydate{October 2012}]
+    {\it AstroML: Machine Learning for Astronomy}\\
+    Conference on Intelligent Data Understanding, Boulder CO\\
+    {\bf Winner of the CIDU 2012 Best Paper Award}
+
+  \item[\mydate{July 2012}]
+    {\it AstroML: Machine Learning for Astronomy}\\
+    SciPy Conference, Austin TX
+    
+  \item[\mydate{December 2011}]
+    {\it Processing Shear Maps with Karhunen-Loeve Analysis} (poster)\\
+    Neuro-Imaging Processing Symposium (NIPS), Granada Spain
+    
+  \item[\mydate{October 2011}]
+    {\it Alternatives to 2-Point Statistics in Weak Lensing}\\
+    DES Collaboration meeting, Philadelphia PA
+    
+  \item[\mydate{June 2011}]
+    {\it Digital Planetariums for the Masses}\\
+    AstroVis, University of Washington (invited)
+    
+  \item[\mydate{May 2011}]
+    {\it KL Interpolation of Weak Lensing Shear}\\
+    INPA Cosmology Seminar, Lawrence Berkeley National Laboratory, CA
+    
+  \item[\mydate{May 2011}]
+    {\it KL Interpolation of Weak Lensing Shear}\\
+    UC Davis Cosmology Seminar, Davis CA
+    
+  \item[\mydate{May 2011}]
+    {\it KL Interpolation of Weak Lensing Shear}\\
+    KIPAC Cosmology Seminar, SLAC National Laboratory, CA
+    
+  \item[\mydate{February 2011}]
+    {\it Peak Statistics for Weak Lensing}\\
+    University of Pennsylvania Lunch Talk, Philadelphia PA
+    
+  \item[\mydate{January 2011}]
+    {\it Finding the Odd One Out in Spectroscopic Surveys} (poster)\\
+    {\it 3D Reconstruction of the Density Field} (poster)\\
+    217th AAS meeting, Seattle WA
+    
+  \item[\mydate{July 2010}]
+    {\it A New Approach to Tomographic Mapping}\\
+    Ten Years of Cosmic Shear, Edinburgh, UK
+
+  \item[\mydate{November 2007}]
+    {\it SALT-2 Light-curve Fitting for SDSS Supernovae}\\
+
+  \end{itemize}
+  }
+
+
+\subtopic{\hspace*{-3ex}Python Talks\\ and Tutorials}{~ 
+  \vspace*{\baselineskip}
+  \begin{itemize}[leftmargin=0ex, itemsep=0ex, parsep=.5ex, labelindent=-4ex]
+
+  % RuPy
+
+  \item[\mydate{July 2013}]
+    {\it Interactive Computing with IPython and ASCOT}\\
+    Clawpack Workshop, University of Washington (invited)
+
+
+
+  \end{itemize}
+}
+
+
+\subtopic{\hspace*{-3ex}Non-technical Talks}{~ 
+  \begin{itemize}[leftmargin=0ex, itemsep=0ex, parsep=.5ex, labelindent=-4ex]
+
+
+  \item[\mydate{June 2013}]
+    {\it Einstein, Gravity, and Time Travel}\\
+    Seattle International Film Festival ``Short Films, Big Ideas: Science Fiction'' (invited)
+
+  \item[\mydate{March 2013}]
+    {\it Dark Matter, Dark Energy, and the Fate of the Universe}\\
+    Calvin College Physics Colloquium, Grand Rapids MI (invited)
+
+  \item[\mydate{November 2011}]
+    {\it Kinect/WorldWide Telescope Demonstration}\\
+    Supercomputing 2011, Seattle WA (invited)
+
+  \item[\mydate{November 2011}]
+    {\it WorldWide Telescope Demonstration}\\
+    Partners in Learning Global Forum, Washington DC (invited)
+
+  \item[\mydate{November 2011}]
+    {\it Gravity: A Lens to the Universe}\\
+    KCTS9 Queen Anne Science Cafe, Seattle WA (invited)
+
+  \item[\mydate{October 2011}]
+    {\it WorldWide Telescope Demonstration}\\
+    Popular Mechanics Breakthrough Awards, New York NY (invited)
+
+  \item[\mydate{March 2011}]
+    {\it Understanding the Dark Side of the Universe}\\
+    Pacific Science Center's ``Science with a Twist'' (invited)
+
+  \item[\mydate{May 2009}]
+    {\it Dark Matter, Gravitational Lensing, and Cosmology}\\
+    Battle Point Astronomical Society
+
+
+  \end{itemize}
+}
+
+
+
+\end{document}
