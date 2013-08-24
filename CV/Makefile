@@ -1,4 +1,4 @@
-all: cv.pdf
+all: CV.pdf
 
-cv.pdf: cv.tex
-	pdflatex cv.tex
+CV.pdf: CV.tex
+	pdflatex CV.tex
