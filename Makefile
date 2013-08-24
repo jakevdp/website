@@ -2,7 +2,8 @@ all : gen
 
 CV: CV/CV.tex
 	cd CV; make
-	mv CV/CV.pdf content/media/pdfs/
+	cp CV/CV.pdf content/media/pdfs/
+	cp CV/CV.pdf deploy_production/media/pdfs
 
 gen: CV
 	hyde gen
