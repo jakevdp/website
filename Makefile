@@ -1,12 +1,17 @@
 all : gen
 
-CV: CV/CV.tex
+CV: content/media/pdfs/CV.pdf
+
+content/media/pdfs/CV.pdf: CV/CV.tex
 	cd CV; make
 	mkdir -p content/media/pdfs/
 	cp CV/CV.pdf content/media/pdfs/
 
 gen: CV
 	hyde gen
+
+serve: clean gen
+	hyde serve
 
 clean:
 	rm -rf deploy
