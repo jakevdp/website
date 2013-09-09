@@ -20,4 +20,4 @@ clean:
 publish: CV
 	rm -rf deploy
 	hyde gen -c production.yaml
-	rsync -e ssh -r deploy_production/ portal:/www/astro/users/vanderplas/html/
+	rsync -e ssh -r deploy_production/ gateway.astro.washington.edu:/www/astro/users/vanderplas/html/
