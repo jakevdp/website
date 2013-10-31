@@ -26,3 +26,8 @@ Generate site for production:
 Publish site via SSH (SSH publisher requires hyde version > 0.8.6):
 
     make publish
+
+License
+=======
+This work is under a [BSD 2-clause license](http://opensource.org/licenses/BSD-2-Clause)
+
