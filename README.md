@@ -8,18 +8,21 @@ Requires hyde:
 
     pip install hyde
 
+Also pdflatex (for CV to be auto-generated)
+
 Generate version for local development:
 
-    hyde gen
+    make gen
 
-Preview local version (this is previewable in the browser at localhost:8080)
+Preview local version
+(this is previewable in the browser at localhost:8080 -- Kill with ctrl-C)
 
-    hyde serve
+    make serve
 
 Generate site for production:
 
-    hyde gen -c production.yaml
+    make gen-production
 
 Publish site via SSH (SSH publisher requires hyde version > 0.8.6):
 
-    hyde publish -c production.yaml
+    make publish

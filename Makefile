@@ -1,4 +1,4 @@
-all : gen
+all: gen
 
 CV: content/media/pdfs/CV.pdf
 
@@ -16,8 +16,8 @@ serve: clean gen
 clean:
 	rm -rf deploy
 
-# Publish should be run from my astro account
-publish: CV
-	rm -rf deploy
+gen-production: clean
 	hyde gen -c production.yaml
+
+publish: CV gen-production	
 	rsync -e ssh -r deploy_production/ gateway.astro.washington.edu:/www/astro/users/vanderplas/html/
