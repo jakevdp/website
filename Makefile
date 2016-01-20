@@ -20,4 +20,4 @@ gen-production: clean
 	hyde gen -c production.yaml
 
 publish: CV gen-production	
-	rsync -e ssh -r deploy_production/ gateway.astro.washington.edu:/www/astro/users/vanderplas/html/
+	rsync -e ssh -r deploy_production/ jakevdp.ovid.u.washington.edu:~/public_html/

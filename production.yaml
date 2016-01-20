@@ -1,13 +1,13 @@
 extends: site.yaml
 
 mode: production
-media_url: /users/vanderplas/media
-base_url: /users/vanderplas
+media_url: /jakevdp/media
+base_url: /jakevdp
 deploy_root: deploy_production
 
 publisher:
     ssh:
         type: hyde.ext.publishers.ssh.SSH
         username: jakevdp
-        server: gateway.astro.washington.edu
-        target: /www/astro/users/vanderplas/html
+        server: jakevdp.ovid.u.washington.edu
+        target: /rc00/d68/jakevdp/public_html
