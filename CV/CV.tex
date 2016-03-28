@@ -58,7 +58,7 @@
 \lfoot{
   \hspace{-2\marginparsep}
   \,\hfill \arabic{page} of \protect\pageref*{LastPage}  \hfill \,\\
-  \,\hfill {\footnotesize \textcolor{gray}{updated January 2016~~~~~}} \hfill\,
+  \,\hfill {\footnotesize \textcolor{gray}{updated March 2016~~~~~}} \hfill\,
 }
 
 \newcommand{\mydate}[1]{{\textcolor{gray}{\footnotesize #1}}}
@@ -193,7 +193,7 @@
 	{\Huge\bf\sf \color{deep_blue} J\huge \hskip -0.05cm AKE %
 	 \Huge \color{deep_blue} V\huge \hskip -0.05cm ANDERPLAS}
 	\\[-.1\baselineskip]
-	{\bf\sf Director of Research -- Physical Sciences}
+	{\bf\sf Senior Data Science Fellow}
         \\
         eScience Institute, University of Washington
     }
@@ -358,6 +358,10 @@ scientific computing tools.
 
 \smalltopic{Formal Teaching}{}
 
+    \subtopic[Winter 2016]{CSE 599/ChemE 599}{
+      Software Engineering for Data Scientists\\
+      {\it University of Washington}}
+
     \subtopic[Fall 2014]{Astr 599 / Applied Math 500}{
       Python for Scientific Computing\\
       {\it University of Washington}}
@@ -379,6 +383,10 @@ scientific computing tools.
       {\it teaching assistant -- University of Washington}}
 
 \smalltopic{Service}{}
+
+   \subtopic[2016]{Python in Astronomy}{SOC member \& LOC chair for this 60-person, week-long workshop focused on development of Python tools for astronomers.}
+
+   \subtopic[2015]{PyData Seattle}{Member of the local organizing committee.}
 
    \subtopic[2015]{Computing the Universe}{SOC member for this week-long workshop at the University of California, Berkeley.}
 
@@ -404,6 +412,10 @@ scientific computing tools.
    }
 
 \smalltopic{Mentoring}{}
+
+    \subtopic[2015-Present]{Grace Telford}{
+      Graduate Student, eScience Institute \& Astronomy Department
+    }
 
     \subtopic[2015-Present]{Jes Ford}{
       Postdoctoral Fellow, eScience Institute \& Astronomy Department
@@ -533,18 +545,17 @@ scientific computing tools.
 
    \subtopic[]{Others}{
      I have made contributions to many other Python projects, including
-     Matplotlib, IPython, NumPy, Pandas, Pelican, and others.  I have also
-     open-sourced much of my research code and teaching materials.
+     Matplotlib, IPython, NumPy, Pandas, AstroPy, Pelican, and others.
+     I have also open-sourced much of my research code and teaching materials.
    }
 
 
-\pagebreak
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \topic{S \large\hskip -1ex ELECTED TALKS}{\small \\{\textcolor{gray}{\it $**$= invited talk}}}
 
 \smalltopic{Astronomy}{}
 
-  \dateonly[**January 2015]{
+  \dateonly[**January 2016]{
       {\it Bayesian Methods in Astronomy}\\
       half-day workshop, 227th AAS meeting
   }
@@ -692,6 +703,11 @@ scientific computing tools.
 
 
 \smalltopic{Computing}{}
+
+  \dateonly[**March 2016]{
+      {\it Data Analysis with Pandas}\\
+      Fred Hutchinson Cancer Research Institute
+  }
 
   \dateonly[**December 2015]{
       {\it Statistics for Hackers}\\
@@ -882,11 +898,14 @@ scientific computing tools.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \topic{P \large\hskip -1ex UBLICATIONS}{~}
+
+\newcounter{PubNumber}
+\newcommand{\publication}{\item[{\bf \textcolor{myblue}{[\stepcounter{PubNumber}\arabic{PubNumber}]}}]}
+
 \subtopic{\hspace*{-3ex} Books}{~ 
   \begin{itemize}[leftmargin=0ex, itemsep=0ex, parsep=.5ex, labelindent=-4ex]
 
-    \item[{\bf \textcolor{myblue}{[1]}}]
-      Z. Ivezic, A. Connolly, J. VanderPlas \& A. Gray.
+    \publication Z. Ivezic, A. Connolly, J. VanderPlas \& A. Gray.
       {\sl Statistics, Data Mining and Machine Learning in Astronomy.}
       Princeton Univertiy Press, 2014
   \end{itemize}
@@ -896,64 +915,69 @@ scientific computing tools.
   %\vspace*{\baselineskip}
   \begin{itemize}[leftmargin=0ex, itemsep=0ex, parsep=.5ex, labelindent=-4ex]
 
-    \item[{\bf \textcolor{myblue}{[2]}}]
+    \publication
+      J. McQueen, M. Meila, J. VanderPlas, Z. Zhang
+      {\it megaman: Manifold Learning with Millions of points}
+      arXiv:1603.02763, 2016
+
+    \publication
       J. VanderPlas \& Z. Ivezic.
       {\it Periodograms for Multiband Astronomical Time Series.}
       ApJ 812:1, 2015
 
-    \item[{\bf \textcolor{myblue}{[3]}}]
+    \publication
       J. VanderPlas.
       {\it Frequentism and Bayesianism: A Python-driven Primer.}
       Proceedings of the 13th Python in Science (SciPy) Conference, 2014
 
-    \item[{\bf \textcolor{myblue}{[4]}}]
+    \publication
       J. VanderPlas.
       {\it Visualizing Four-Dimensional Asteroids.}
       Scientific American Magazine, Oct. 2014
 
-    \item[{\bf \textcolor{myblue}{[5]}}]
+     \publication
       A.J. Connolly {\it et al.}
       {\it An end-to-end simulation framework for the Large Synoptic Survey Telescope.}
       SPIE 9150:14, 2014
 
-    \item[{\bf \textcolor{myblue}{[6]}}]
+    \publication
       J. VanderPlas {\it et al.}
       {\it Squeezing a Big Orange into Little Boxes: The AscotDB System
         for Parallel Processing of Data on a Sphere}
       IEEE Data Engineering Bulletin 36(4): 11-20 (2013)
 
-    \item[{\bf \textcolor{myblue}{[7]}}]
+    \publication
       Emad Soroush {\it et al.}
       {\it A Demonstration of Iterative Parallel Array Processing in Support
         of Telescope Image Analysis.}
       PVLDB 6(12): 1322-1325 (2013)
 
-    \item[{\bf \textcolor{myblue}{[8]}}]
+    \publication
       L. Buitinck {\it et al.}
       {\it API design for machine learning software:
         experiences from the scikit-learn project}
       European Conference on Machine Learning and Principles and Practices
       of Knowledge Discovery in Databases (2013)
 
-    \item[{\bf \textcolor{myblue}{[9]}}]
+    \publication
       L. Palaversa {\sl et al.}
       {\sl Exploring the Variable Sky with LINEAR. III.
         Classification of Periodic Light Curves}
       AJ 146:101, 2013
 
-    \item[{\bf \textcolor{myblue}{[10]}}]
+    \publication
       V. Vikram, A. Cabr\'{e}, B. Jain, \& J. VanderPlas.
       {\it Astrophysical tests of modified gravity:
         the morphology and kinematics of dwarf galaxies}
       JCAP 08:20, 2013
  
-    \item[{\bf \textcolor{myblue}{[11]}}]
+    \publication
       J. VanderPlas, A. Connolly, Z. Ivezic, \& A. Gray.
       {\sl Introduction to AstroML: Machine Learning for Astrophysics}.
       Proc. of the CIDU, 2012
       {\bf (Recipient of the CIDU 2012 Best Paper award)}
 
-    \item[{\bf \textcolor{myblue}{[12]}}]
+    \publication
       J. VanderPlas, A. Connolly, B. Jain, \& M. Jarvis.
       {\it Interpolating Masked Weak Lensing Signals with Karhunen-Loeve
         Analysis}.
@@ -964,56 +988,56 @@ scientific computing tools.
       {\sl Classification of Stellar Spectra with LLE}.
       AJ 142:203, 2011
 
-    \item[{\bf \textcolor{myblue}{[14]}}]
+    \publication
       F. Pedregosa {\sl et al.}
       {\sl Scikit-learn: Machine learning in Python}.
       Journal of Machine Learning Research, 12:2825, 2011
 
-    \item[{\bf \textcolor{myblue}{[15]}}]
+    \publication
       B. Jain \& J. VanderPlas.
       {\sl Tests of Modified Gravity with Dwarf Galaxies}.
       JCAP 10:32, 2011
 
-    \item[{\bf \textcolor{myblue}{[16]}}]
+    \publication
       J. VanderPlas, A. Connolly, B. Jain, \& M. Jarvis.
       {\sl 3D Reconstruction of the Density Field: An SVD Approach
         to Weak Lensing Tomography}.
       ApJ 727:118, 2011
 
-    \item[{\bf \textcolor{myblue}{[17]}}]
+    \publication
       L. Xiong, B. Poczos, J. Schneider, A. Connolly, \& J. VanderPlas.
       {\sl Hierarchical Probabilistic Models for Group Anomaly Detection}.
       Artificial Intelligence and Statistics (AISTATS), 2011
 
-    \item[{\bf \textcolor{myblue}{[18]}}]
+    \publication
       H. Lampeitl {\sl et al.}
       {\sl First-year Sloan Digital Sky Survey-II supernova results: 
       consistency and constraints with other intermediate-redshift data sets.}
       MNRAS 401:2331, 2010
 
-    \item[{\bf \textcolor{myblue}{[19]}}]
+    \publication
       LSST Science Collaboration
       {\sl LSST Science Book, Version 2.0}, arXiv:0912.0201, 2010
 
-    \item[{\bf \textcolor{myblue}{[20]}}]
+    \publication
       R. Kessler {\it et al.}
       {\it First-Year Sloan Digital Sky Survey-II Supernova Results: 
       Hubble Diagram and Cosmological Parameters}.
       ApJS 185:32, 2009
 
-    \item[{\bf \textcolor{myblue}{[21]}}]
+    \publication
       J. VanderPlas \& A. Connolly.
       {\it Reducing the Dimensionality of Data: Locally 
       Linear Embedding of Sloan Galaxy Spectra}.
       AJ 138:1365, 2009
 
-    \item[{\bf \textcolor{myblue}{[22]}}]
+    \publication
       J. Sollerman {\sl et al.}
       {\it First-Year Sloan Digital Sky Survey-II (SDSS-II) Supernova 
       Results: Constraints on Nonstandard Cosmological Models}.
       ApJ 703:1374, 2009
 
-    \item[{\bf \textcolor{myblue}{[23]}}]
+    \publication
       R. Kessler {\it et al.}
       {\it SNANA: A Public Software Package for Supernova Analysis}.
       PASP 121:1028, 2009
