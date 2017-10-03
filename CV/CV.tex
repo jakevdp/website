@@ -219,8 +219,8 @@
 %\begin{minipage}{15cm}
 
 \begin{center}
-My driving goal is to encourage and support the use of reproducible software
-practices for across disciplines.
+My driving goal is to use, support, and advocate open \& reproducible
+software practices across disciplines.
 \end{center}
 
 \begin{multicols}{2}
@@ -243,10 +243,10 @@ I maintain a technical blog, \href{http://jakevdp.github.io/}{Pythonic Perambula
 \item[\mydot]
 I invest a significant amount of time in creating and developing
 Python tools for use in data-intensive science, including packages like
-{\it Scikit-Learn}, {\it SciPy}, {\it AstroPy}, and many others.
+{\it Scikit-Learn}, {\it SciPy}, {\it AstroPy}, {\it Altair}, and many others.
 
 \item[\mydot]
-Outside the university, I spend significant time
+Outside the university, I participate in the broader data science community,
 developing and presenting talks and tutorials on scientific computing
 topics at various conferences in the data science world.
 
@@ -368,6 +368,10 @@ topics at various conferences in the data science world.
 
 \smalltopic{Formal Teaching}{}
 
+    \subtopic[Fall 2017]{CSE 583}{
+      Software Development for Data Scientists\\
+      {\it University of Washington}}
+
     \subtopic[Winter \& Fall 2016]{CSE 599/ChemE 599}{
       Software Engineering for Data Scientists\\
       {\it University of Washington}}
@@ -403,8 +407,10 @@ topics at various conferences in the data science world.
    }
 
    \subtopic[2014-2017]{AstroHackWeek}{
-     Creator and lead organizer for the first annual AstroHackWeek in 2014;
-     co-organizer in years since.
+     Creator of the annual AstroHackWeek conference series;
+     sole organizer in 2014; co-organizer in 2015-2017. Since 2014, this model
+     has been adapted by colleagues in other fields (including NeuroHackWeek
+     and GeoHackWeek)
    }
 
    \subtopic[2017]{SciPy Conference}{
@@ -433,11 +439,19 @@ topics at various conferences in the data science world.
 
 \smalltopic{Mentoring}{}
 
+    \subtopic[2017-Present]{Callin Switzer}{
+	  Postdoctoral Fellow, UW eScience Institute \& Biology Department
+	}
+
+    \subtopic[2017-Present]{Kathryn Neugent}{
+	  Graduate Student, UW eScience Institute \& Astronomy Department
+	}
+
     \subtopic[2015-Present]{David Fleming}{
 	  Graduate Student, UW eScience Institute \& Astronomy Department
 	}
 
-    \subtopic[2015-Present]{Grace Telford}{
+    \subtopic[2015-2017]{Grace Telford}{
       Graduate Student, UW eScience Institute \& Astronomy Department
     }
 
@@ -445,7 +459,7 @@ topics at various conferences in the data science world.
       Postdoctoral Fellow, UW eScience Institute \& Astronomy Department
     }
 
-    \subtopic[2015-Present]{Xiaofeng Meng}{
+    \subtopic[2015-2017]{Xiaofeng Meng}{
       Postdoctoral Fellow, UW eScience Institute \& Earth and Space Sciences
     }
 
@@ -494,7 +508,7 @@ topics at various conferences in the data science world.
 
     \subtopic[1999-2003]{Calvin College}{
       4-year recipient of the Calvin College Presidential Scholarship;
-      4 years on MIAA Honor Roll;
+      4 years on MIAA Atheletic Honor Roll;
       recipient of the Roger D. Griffioen Physics Scholarship.
     }
 
@@ -576,6 +590,23 @@ topics at various conferences in the data science world.
 \topic{S \large\hskip -1ex ELECTED TALKS}{{\small \\{\textcolor{gray}{\it $**$= invited talk}}}\\
     Many of the slide-decks referenced below are archived at \url{http://speakerdeck.com/jakevdp/}.}
 
+\smalltopic{Keynote Addresses}{}
+
+  \dateonly[**July 2017]{
+     {\it PyData 101: Everything you need to know to get started with data science in Python}\\
+     PyData Seattle 2017
+  }
+
+  \dateonly[**May 2017]{
+     {\it The Unexpected Effectiveness of Python in Science}\\
+     PyCon 2017, Portland OR
+  }
+
+  \dateonly[**July 2015]{
+    {\it The State of the Stack}\\
+    SciPy 2015, Austin TX
+  }
+
 
 \smalltopic{Computing}{}
 
@@ -589,13 +620,7 @@ topics at various conferences in the data science world.
      SciPy 2017, Austin TX
   }
 
-  \dateonly[**July 2017]{
-     {\it {\bf Keynote: PyData 101}}\\
-     PyData Seattle 2017
-  }
-
   \dateonly[**May 2017]{
-     {\it {\bf Keynote: The Unexpected Effectiveness of Python in Science}}\\
      {\it Python's Visualization Landscape (Submitted Talk)}\\
      PyCon 2017, Portland OR
   }
@@ -664,11 +689,6 @@ topics at various conferences in the data science world.
     {\it Machine Learning with Scikit-Learn} (2 hour tutorial)\\
     {\it Data Science at University of Washington} (30 minute talk)\\
     PyData Seattle 2015, Redmond WA
-  }
-
-  \dateonly[**July 2015]{
-    {\it {\bf Keynote: The State of the Stack}}\\
-    SciPy 2015, Austin TX
   }
 
   \dateonly[**June 2015]{
@@ -1012,8 +1032,6 @@ topics at various conferences in the data science world.
     Battle Point Astronomical Society, Bainbridge Island, WA
   }
 
-\newpage
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \topic{P \large\hskip -1ex UBLICATIONS}{~}
@@ -1117,6 +1135,14 @@ topics at various conferences in the data science world.
         the morphology and kinematics of dwarf galaxies}
       JCAP 08:20, 2013
 
+% Manually Force a page-break
+  \end{itemize}
+}
+
+\smalltopic{}{
+
+  \begin{itemize}[leftmargin=0ex, itemsep=0ex, parsep=.5ex, labelindent=-4ex]
+
     \publication
       J. VanderPlas, A. Connolly, Z. Ivezic, \& A. Gray.
       {\sl Introduction to AstroML: Machine Learning for Astrophysics}.
@@ -1155,13 +1181,6 @@ topics at various conferences in the data science world.
       {\sl Hierarchical Probabilistic Models for Group Anomaly Detection}.
       Artificial Intelligence and Statistics (AISTATS), 2011
 
-% Manually Force a page-break
-  \end{itemize}
-}
-
-\smalltopic{}{
-
-  \begin{itemize}[leftmargin=0ex, itemsep=0ex, parsep=.5ex, labelindent=-4ex]
 
     \publication
       H. Lampeitl {\sl et al.}
