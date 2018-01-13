@@ -4,9 +4,9 @@ See the rendered version at http://www.astro.washington.edu/users/vanderplas
 
 Building
 ========
-Requires hyde:
+Requires python 2.7, alon with hyde and ghp-import:
 
-    pip install hyde
+    pip install hyde ghp-import
 
 Also pdflatex (for CV to be auto-generated)
 
@@ -23,9 +23,9 @@ Generate site for production:
 
     make gen-production
 
-Publish site via SSH (SSH publisher requires hyde version > 0.8.6):
+Publish site to github pages
 
-    make publish
+    make publish-to-github
 
 License
 =======

@@ -1,3 +1,12 @@
+BASEDIR=$(CURDIR)
+INPUTDIR=$(BASEDIR)/content
+OUTPUTDIR=$(BASEDIR)/deploy_production
+
+GITHUB_PAGES_REMOTE=git@github.com:vanderplas/vanderplas.github.io.git
+GITHUB_PAGES_BRANCH=master
+GIT_COMMIT_HASH = $(shell git rev-parse HEAD)
+
+
 all: gen
 
 CV: content/media/pdfs/CV.pdf
@@ -19,5 +28,17 @@ clean:
 gen-production: clean
 	hyde gen -c production.yaml
 
-publish: CV gen-production	
-	rsync -e ssh -r deploy_production/ jakevdp.ovid.u.washington.edu:~/public_html/
+publish: CV gen-production
+
+
+publish-to-github: publish
+	ghp-import -n -m "publish-to-github from $(GIT_COMMIT_HASH)" -b blog-build $(OUTPUTDIR)
+	git push $(GITHUB_PAGES_REMOTE) blog-build:$(GITHUB_PAGES_BRANCH)
+
+
+publish-to-github-force: publish
+	ghp-import -n -m "publish-to-github-force from $(GIT_COMMIT_HASH)" -b blog-build $(OUTPUTDIR)
+	git push -f $(GITHUB_PAGES_REMOTE) blog-build:$(GITHUB_PAGES_BRANCH)
+
+
+
